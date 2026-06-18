@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云世界杯 · 信息指引页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1f2a3c;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* header / hero 简版 */
+        .hero {
+            margin-bottom: 40px;
+            padding: 28px 20px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e6e9f0;
+        }
+
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #0f1b2e;
+            margin-bottom: 6px;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: #5b6a7e;
+            border-left: 4px solid #b0c4de;
+            padding-left: 16px;
+            margin-top: 12px;
+        }
+
+        /* 卡片通用设计 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #dee2ea;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+            padding: 24px 22px;
+            flex: 1 1 280px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #14233c;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h2 i {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #5e7a9b;
+            border-radius: 50%;
+        }
+
+        .card p, .card li {
+            font-size: 0.94rem;
+            color: #2d3b4e;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 4px;
+            color: #7b8fa8;
+            font-weight: bold;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            background: #f0f3f8;
+            border: 1px solid #dbe0e9;
+            border-radius: 30px;
+            padding: 4px 16px;
+            font-size: 0.82rem;
+            color: #2f4057;
+        }
+
+        .inline-link {
+            color: #1f4977;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b6cbeb;
+            transition: border-color 0.15s, background 0.15s;
+            padding: 0 2px;
+        }
+
+        .inline-link:hover {
+            border-bottom-style: solid;
+            border-color: #1f4977;
+            background: #f1f6fe;
+            border-radius: 2px;
+        }
+
+        /* 提示区块 */
+        .info-panel {
+            background: #fafbfd;
+            border: 1px solid #dce2ec;
+            border-radius: 18px;
+            padding: 26px 28px;
+            margin-bottom: 40px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-panel h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #18273f;
+            margin-bottom: 12px;
+        }
+
+        .info-panel p {
+            color: #33435a;
+            font-size: 0.95rem;
+        }
+
+        .info-panel .pill {
+            display: inline-block;
+            background: #e8edf6;
+            border: 1px solid #d0daea;
+            border-radius: 24px;
+            padding: 3px 16px;
+            font-size: 0.8rem;
+            color: #1f3d5a;
+            margin-right: 8px;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eaedf2;
+            padding-bottom: 12px;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #142b44;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: #3e5069;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #6b7b90;
+            border-top: 1px solid #dce0e8;
+            padding-top: 24px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 14px;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .card {
+                flex: 1 1 100%;
+                padding: 20px 18px;
+            }
+            .info-panel {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 区域：简短介绍&目录定位 -->
+    <div class="hero">
+        <h1>开云世界杯 · 知识库入口</h1>
+        <div class="subhead">
+            从稳定信息起点理解平台 · 聚合说明、提示与相关参考
+        </div>
+        <p style="margin-top: 18px; color: #2d4059; font-size: 0.95rem;">
+            本页作为资料汇集页，整理关于 <a href="https://www.soccer-kaiyunapp.com.cn" class="inline-link">开云世界杯</a> 的基础介绍、使用场景及常见问题摘要。
+            所有内容均基于公开信息与用户常规经验归纳，供初步了解参考。
+        </p>
+    </div>
+
+    <!-- 卡片式目录区：三个方向 -->
+    <div class="card-grid">
+        <!-- 卡片一：平台说明 -->
+        <div class="card">
+            <h2><i></i> 定位与说明</h2>
+            <p>
+                开云世界杯是一个聚焦体育资讯与赛事互动的平台，围绕世界杯等足球赛事提供信息聚合、数据参考及社区讨论空间。
+                其内容覆盖赛事前瞻、球队动态、历史数据等方面，适合希望系统了解足球赛事背景的用户。
+            </p>
+            <div class="tag-list">
+                <span class="tag">赛事信息</span>
+                <span class="tag">数据参考</span>
+                <span class="tag">社区交流</span>
+            </div>
+        </div>
+
+        <!-- 卡片二：应用场景 -->
+        <div class="card">
+            <h2><i></i> 常见使用场景</h2>
+            <ul>
+                <li>查阅小组赛、淘汰赛阶段的赛程与对阵</li>
+                <li>了解球队历史交手记录及近期状态</li>
+                <li>关注实时比分、积分榜变化</li>
+                <li>参与话题讨论，参考其他爱好者整理的分析</li>
+                <li>回顾经典赛事视频与图文专题</li>
+            </ul>
+        </div>
+
+        <!-- 卡片三：特点摘要 -->
+        <div class="card">
+            <h2><i></i> 特点摘要</h2>
+            <ul>
+                <li>信息结构清晰，按赛事、队伍、阶段分类</li>
+                <li>数据更新相对及时，覆盖主流赛事</li>
+                <li>界面风格简洁，减少冗余干扰</li>
+                <li>支持多终端访问，移动端适配良好</li>
+                <li>用户可基于内容自行判断与筛选</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 提示区：使用前的小提醒 -->
+    <div class="info-panel">
+        <h3>📌 使用提示</h3>
+        <p>
+            · 所有数据仅供参考，请以官方发布或现场直播为准。<br>
+            · 平台内容由用户及编辑共同贡献，建议结合多方信源交叉验证。<br>
+            · 如需获取更完整的赛事信息，可直接访问 <a href="https://www.soccer-kaiyunapp.com.cn" class="inline-link">开云世界杯</a> 查看最新页面。<br>
+            · 请合理分配时间，避免过度关注单一信息来源。
+        </p>
+        <div style="margin-top: 14px;">
+            <span class="pill">版本说明</span>
+            <span class="pill">内容时效</span>
+            <span class="pill">用户指南</span>
+        </div>
+    </div>
+
+    <!-- 相关信息区：FAQ摘要 + 附加参考 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 20px;">
+        <div style="flex: 2; min-width: 260px;">
+            <div class="card" style="height: 100%;">
+                <h2><i></i> 常见问题摘要</h2>
+                <div class="faq-mini">
+                    <div class="faq-item">
+                        <div class="faq-q">如何查看某支球队的历史战绩？</div>
+                        <div class="faq-a">在赛事数据板块中选择球队名称，即可看到近几场的比赛记录、进球统计等基础数据。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">平台是否提供赛程提醒功能？</div>
+                        <div class="faq-a">部分页面支持赛程列表展示，建议自行设置日历提醒或关注实时更新区域。</div>
+                    </div>
+                    <div class="faq-item" style="border-bottom: none; padding-bottom: 0;">
+                        <div class="faq-q">内容更新频率如何？</div>
+                        <div class="faq-a">赛程、比分等动态信息在比赛日更新较密集；专题类文章按赛事阶段不定期发布。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="flex: 1.2; min-width: 200px;">
+            <div class="card" style="height: 100%;">
+                <h2><i></i> 相关信息</h2>
+                <ul style="margin-bottom: 16px;">
+                    <li>世界杯赛制介绍</li>
+                    <li>球队实力榜参考</li>
+                    <li>经典比赛复盘</li>
+                    <li>转会与阵容变动</li>
+                </ul>
+                <p style="font-size: 0.9rem; color: #3a4f66;">
+                    更多内容可在 <a href="https://www.soccer-kaiyunapp.com.cn" class="inline-link">开云世界杯</a> 中逐步探索，根据个人兴趣选择板块。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        本介绍页为独立整理版 · 信息仅供参考 · 具体以实际页面为准<br>
+        内容方向：知识库入口 · 目录感布局 · 说明&提示&相关信息
+    </div>
+
+</div>
+</body>
+</html>
